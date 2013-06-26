@@ -353,8 +353,10 @@
 
 			if (this.date < this.startDate) {
 				this.viewDate = new Date(this.startDate);
+				this.date = undefined;
 			} else if (this.date > this.endDate) {
 				this.viewDate = new Date(this.endDate);
+				this.date = undefined;
 			} else {
 				this.viewDate = new Date(this.date);
 			}
