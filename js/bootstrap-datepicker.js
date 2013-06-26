@@ -210,6 +210,7 @@
 		},
 
 		show: function(e) {
+			this.dateOnShow = this.date;
 			this.picker.show();
 			this.height = this.component ? this.component.outerHeight() : this.element.outerHeight();
 			this.update();
@@ -247,6 +248,22 @@
 				type: 'hide',
 				date: this.date
 			});
+
+			if ((this.dateOnShow != this.date) || (this.date == undefined)) {
+				this.element.trigger({
+					type: 'changeDate',
+					date: this.date
+				});
+				var element;
+				if (this.isInput) {
+					element = this.element;
+				} else if (this.component){
+					element = this.element.find('input');
+				}
+				if (element) {
+					element.change();
+				}
+			}
 		},
 
 		remove: function() {
