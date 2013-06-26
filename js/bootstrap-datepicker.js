@@ -249,7 +249,7 @@
 				date: this.date
 			});
 
-			if ((this.dateOnShow != this.date) || (this.date == undefined)) {
+			if (this.dateOnShow && ((this.dateOnShow != this.date) || (this.date == undefined))) {
 				this.element.trigger({
 					type: 'changeDate',
 					date: this.date
@@ -644,6 +644,7 @@
 				this.viewDate = date;
 			this.fill();
 			this.setValue();
+			this.dateOnShow = undefined;
 			this.element.trigger({
 				type: 'changeDate',
 				date: this.date
@@ -783,6 +784,7 @@
 					break;
 			}
 			if (dateChanged){
+				this.dateOnShow = undefined;
 				this.element.trigger({
 					type: 'changeDate',
 					date: this.date
