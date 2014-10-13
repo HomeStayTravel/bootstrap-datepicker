@@ -427,3 +427,8 @@ $('.datepicker').datepicker({
     language: XX    //as you defined in bootstrap-datepicker.XX.js
 });
 ```
+
+Other
+---
+
+This fork is in use at [Homestay.com](http://www.homestay.com).
